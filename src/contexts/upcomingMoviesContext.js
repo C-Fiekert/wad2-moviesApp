@@ -5,22 +5,22 @@ export const UpcomingMoviesContext = createContext(null);
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "add-favorite":
+    case "watch-list":
       return {
         movies: state.movies.map((m) =>
-          m.id === action.payload.movie.id ? { ...m, favorite: true } : m
+          m.id === action.payload.movie.id ? { ...m, watchL: true } : m
         ),
       };
     case "load":
       return { movies: action.payload.movies };
       case "add-review":
-        return {
-          movies: state.movies.map((m) =>
-            m.id === action.payload.movie.id
-              ? { ...m, review: action.payload.review }
-              : m
-          ),
-        };
+      return {
+        movies: state.movies.map((m) =>
+          m.id === action.payload.movie.id
+            ? { ...m, review: action.payload.review }
+            : m
+        ),
+      };
       break;
     default:
       return state;
@@ -30,9 +30,9 @@ const reducer = (state, action) => {
 const UpcomingMoviesContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, { movies: [] });
 
-  const addToFavorites = (movieId) => {
+  const addToWatchList = (movieId) => {
     const index = state.movies.map((m) => m.id).indexOf(movieId);
-    dispatch({ type: "add-favorite", payload: { movie: state.movies[index] } });
+    dispatch({ type: "watch-list", payload: { movie: state.movies[index] } });
   };
 
   const addReview = (movie, review) => {
@@ -49,8 +49,8 @@ const UpcomingMoviesContextProvider = (props) => {
     <UpcomingMoviesContext.Provider
       value={{
         movies: state.movies,
-        favorites: state.favorites,
-        addToFavorites: addToFavorites,
+        watchLater: state.watchLater,
+        addToWatchList: addToWatchList,
         addReview: addReview,
       }}
     >
