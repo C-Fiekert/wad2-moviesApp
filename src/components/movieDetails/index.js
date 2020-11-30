@@ -60,6 +60,28 @@ export default ({ movie }) => {
           </li>
         ))}
       </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="bh" className="list-group-item list-group-item-dark">
+          Budget
+        </li>
+        <li key="b" className="list-group-item">
+          ${movie.budget}
+        </li>
+        <li key="revh" className="list-group-item list-group-item-dark">
+          Revenue
+        </li>
+        <li key="rev" className="list-group-item">
+          ${movie.revenue}
+        </li>
+      </ul>
+      <ul className="list-group list-group-horizontal">
+        <li key="sth" className="list-group-item list-group-item-dark">
+          Movie Status
+        </li>
+        <li key="st" className="list-group-item">
+          {movie.status}
+        </li>
+      </ul>
     </>
   );
 };
