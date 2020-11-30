@@ -17,9 +17,9 @@ import WatchLaterPage from './pages/watchLaterPage';
 const App = () => {
   return (
     <BrowserRouter>
-      <div className="jumbotron">
+      <div className="jumbotron" style={{backgroundColor:"#d20000"}}>
         <SiteHeader /> 
-        <div className="container-fluid">
+        <div className="container-fluid" >
           <MoviesContextProvider>
             <UpcomingMoviesContext>
               <GenresContextProvider>    {/* NEW */}

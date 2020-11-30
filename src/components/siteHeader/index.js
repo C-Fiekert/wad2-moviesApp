@@ -6,7 +6,7 @@ import "./siteHeader.css";
 
 const SiteHeader = () => {
   return (
-    <nav className="navbar  navbar-light fixed-top  bg-dark ">
+    <nav className="navbar  navbar-light fixed-top" style={{backgroundColor:"#e5bb00"}}>
       <nav className="navbar-brand text-white">
         <Link className=" text-white" to="/">
           TMDB Client

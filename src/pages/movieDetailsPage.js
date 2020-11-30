@@ -20,6 +20,7 @@ const MoviePage = props => {
             {!props.history.location.pathname.endsWith("/reviews") ? (
               <Link
                 className="btn btn-primary btn-block active"
+                style={{backgroundColor:"#e5bb00"}}
                 to={`/movies/${id}/reviews`}
               >
                 Show Reviews (Extracts)
@@ -27,6 +28,7 @@ const MoviePage = props => {
             ) : (
               <Link
                 className="btn btn-primary btn-block active"
+                style={{backgroundColor:"#e5bb00"}}
                 to={`/movies/${id}`}
               >
                 Hide Reviews 
