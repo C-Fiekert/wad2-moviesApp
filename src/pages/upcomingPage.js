@@ -3,7 +3,7 @@ import PageTemplate from '../components/templateMovieListPage'
 import {UpcomingMoviesContext} from '../contexts/upcomingMoviesContext'
 import WatchListButton from '../components/buttons/addToWatchList'
 
-const MovieListPage = () => {
+const UpcomingPage = () => {
   const context = useContext(UpcomingMoviesContext)
   const movies = context.movies.filter((m) => {
     return !("watch-later" in m);
@@ -20,4 +20,4 @@ const MovieListPage = () => {
   );
 };
 
-export default MovieListPage;
+export default UpcomingPage;

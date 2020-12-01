@@ -9,10 +9,13 @@ import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
 import UpcomingPage from './pages/upcomingPage';
 import MoviesContextProvider from "./contexts/moviesContext";
-import UpcomingMoviesContext from "./contexts/upcomingMoviesContext";
+import UpcomingMoviesContextProvider from "./contexts/upcomingMoviesContext";
 import GenresContextProvider from "./contexts/genresContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage';
 import WatchLaterPage from './pages/watchLaterPage';
+import TrendingContextProvider from './contexts/trendingContext';
+import TrendingPage from './pages/trendingPage';
+
 
 const App = () => {
   return (
@@ -21,20 +24,23 @@ const App = () => {
         <SiteHeader /> 
         <div className="container-fluid" >
           <MoviesContextProvider>
-            <UpcomingMoviesContext>
-              <GenresContextProvider>    {/* NEW */}
-              <Switch>
-                <Route exact path="/movies/watchLater" component={WatchLaterPage} />
-                <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-                <Route exact path="/reviews/:id" component={MovieReviewPage} />
-                <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                <Route exact path="/movies/upcoming" component={UpcomingPage} />
-                <Route exact path="/movies/:id" component={MoviePage} />
-                <Route exact path="/" component={HomePage} />
-                <Redirect from="*" to="/" />
-              </Switch>
-              </GenresContextProvider>    {/* NEW */}
-            </UpcomingMoviesContext>
+            <TrendingContextProvider>
+              <UpcomingMoviesContextProvider>
+                <GenresContextProvider>    {/* NEW */}
+                <Switch>
+                  <Route exact path="/movies/watchLater" component={WatchLaterPage} />
+                  <Route exact path="/movies/trending" component={TrendingPage} />
+                  <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                  <Route exact path="/reviews/:id" component={MovieReviewPage} />
+                  <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                  <Route exact path="/movies/upcoming" component={UpcomingPage} />
+                  <Route exact path="/movies/:id" component={MoviePage} />
+                  <Route exact path="/" component={HomePage} />
+                  <Redirect from="*" to="/" />
+                </Switch>
+                </GenresContextProvider>    {/* NEW */}
+              </UpcomingMoviesContextProvider>
+            </TrendingContextProvider>
           </MoviesContextProvider>
         </div>
       </div>
