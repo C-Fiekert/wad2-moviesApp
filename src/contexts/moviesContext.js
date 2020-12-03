@@ -13,7 +13,7 @@ const reducer = (state, action) => {
       };
     case "load":
       return { movies: action.payload.movies };
-      case "add-review":
+    case "add-review":
       return {
         movies: state.movies.map((m) =>
           m.id === action.payload.movie.id

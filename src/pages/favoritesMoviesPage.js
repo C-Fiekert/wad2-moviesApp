@@ -2,6 +2,7 @@ import React, {useContext} from "react";
 import MovieListPageTemplate from "../components/templateMovieListPage";
 import AddReviewButton from '../components/buttons/addReview'
 import {MoviesContext} from '../contexts/moviesContext'
+import 'semantic-ui-css/semantic.min.css'
 
 const FavoriteMoviesPage = props => {
   const context = useContext(MoviesContext);

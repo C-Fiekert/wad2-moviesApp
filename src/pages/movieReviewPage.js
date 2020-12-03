@@ -1,6 +1,7 @@
 import React from "react";
 import PageTemplate from '../components/templateMoviePage'
 import MovieReview from "../components/movieReview";
+import 'semantic-ui-css/semantic.min.css'
 
 const MovieReviewPage = (props) => {
   return (

@@ -1,40 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./movieCard.css";
+import "./actorCard.css";
 import "../../globals/fontawesome";
 import { Card } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 import { Image } from 'semantic-ui-react'
 
-const MovieCard = ({movie, action}) => {
-
+const ActorCard = ({person}) => {
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
-      <Link to={`/movies/${movie.id}`}>
+      <Link to={`/person/${person.id}`}>
       <Card>
         <Image
           className="card-img-tag center "
-          alt={movie.title}
+          alt={person.name}
           src={
-            movie.poster_path
-              ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+            person.profile_path
+              ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
               : "./film-poster-placeholder.png"
           }
           rounded
         />
         <Card.Content>
-          <Card.Header>{movie.title}</Card.Header>
+          <Card.Header>{person.name}</Card.Header>
           <Card.Description>
-            <Icon name='calendar alternate' />
-            {movie.release_date}
+            <Icon name='like'/>
+            Rating: {person.popularity}
           </Card.Description>
           <Card.Description>
-            <Icon name='star outline' />
-            {movie.vote_average}
+            <b>Featured in:</b>
+            {person.known_for.map(kf => (
+                <p key={kf.title}>{kf.title}</p>
+            ))}
+            {person.known_for.map(kf => (
+                <p key={kf.name}>{kf.name}</p>
+            ))}
           </Card.Description>
-        </Card.Content>
-        <Card.Content extra>
-          {action(movie)}
         </Card.Content>
       </Card>
       </Link>
@@ -42,4 +43,4 @@ const MovieCard = ({movie, action}) => {
   );
 };
 
-export default MovieCard;
+export default ActorCard;

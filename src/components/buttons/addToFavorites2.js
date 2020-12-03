@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import {MoviesContext} from "../../contexts/moviesContext";
+import {TrendingContext} from "../../contexts/trendingContext";
 
 import { Button } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 
-const AddToFavoritesButton = ({ movie }) => {
-  const context = useContext(MoviesContext);
+const AddToFavoritesButton2 = ({ movie }) => {
+  const context = useContext(TrendingContext);
 
   const handleAddToFavorite = e => {
     e.preventDefault();
@@ -21,4 +21,4 @@ const AddToFavoritesButton = ({ movie }) => {
   );
 };
 
-export default AddToFavoritesButton;
+export default AddToFavoritesButton2;

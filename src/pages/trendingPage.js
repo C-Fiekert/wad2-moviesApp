@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateMovieListPage'
 import {TrendingContext} from '../contexts/trendingContext'
-import AddToFavoritesButton from '../components/buttons/addToFavorites'
+import AddToFavoritesButton2 from '../components/buttons/addToFavorites2'
 
 const TrendingPage = () => {
   const context = useContext(TrendingContext);
@@ -14,7 +14,7 @@ const TrendingPage = () => {
       title="No. Movies"
       movies={movies}  /* Changed */
       action={(movie) => {
-        return <AddToFavoritesButton movie={movie} />
+        return <AddToFavoritesButton2 movie={movie} />
       }}
     />
   );

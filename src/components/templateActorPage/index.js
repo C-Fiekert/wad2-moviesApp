@@ -1,21 +1,21 @@
 import React from "react";
-import MovieHeader from '../headerMovie'
-import "./moviePage.css";
+import ActorHeader from '../headerActor'
+import "./actorPage.css";
 import { Image } from 'semantic-ui-react'
 
-const TemplateMoviePage = ({ movie, children }) => {
+const TemplateActorPage = ({ person, children }) => {
   return (
     <>
-      <MovieHeader movie={movie} />
+      <ActorHeader person={person} />
       <div className="row">
         <div className="col-3">
           <Image
             src={
-              movie.poster_path
-                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+              person.profile_path
+                ? `https://image.tmdb.org/t/p/w500/${person.profile_path}`
                 : "./film-poster-placeholder.png"
             }
-            alt={movie.title}
+            alt={person.name}
             rounded
           />
         </div>
@@ -25,4 +25,4 @@ const TemplateMoviePage = ({ movie, children }) => {
   );
 };
 
-export default TemplateMoviePage;
+export default TemplateActorPage;

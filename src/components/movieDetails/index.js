@@ -1,87 +1,62 @@
 import React from "react";
+import { Table } from "semantic-ui-react";
 import "./movieDetails.css";
 
 export default ({ movie }) => {
   return (
     <>
-      <h4>Overview</h4>
-      <p>{movie.overview}</p>
-      <ul className="list-group list-group-horizontal">
-        <li key="ruh" className="list-group-item list-group-item-dark">
-          Runtime (min.)
-        </li>
-        <li key="rut" className="list-group-item ">
-          {movie.runtime}
-        </li>
-        <li key="rdh" className="list-group-item list-group-item-dark">
-          Release Date
-        </li>
-        <li key="rdv" className="list-group-item ">
-          {movie.release_date}
-        </li>
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="gh" className="list-group-item list-group-item-dark">
-          Genres
-        </li>
-        {movie.genres.map(g => (
-          <li key={g.name} className="list-group-item">
-            {g.name}
-          </li>
-        ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="slh" className="list-group-item list-group-item-dark">
-          Spoken Languages
-        </li>
-        {movie.spoken_languages.map(lang => (
-          <li key={lang.name} className="list-group-item">
-            {lang.name}
-          </li>
-        ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="pch" className="list-group-item list-group-item-dark">
-          Production Companies
-        </li>
-        {movie.production_companies.map(pc => (
-          <li key={pc.name} className="list-group-item">
-            {pc.name}
-          </li>
-        ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="pcch" className="list-group-item list-group-item-dark">
-          Production Countries
-        </li>
-        {movie.production_countries.map(pcc => (
-          <li key={pcc.name} className="list-group-item">
-            {pcc.name}
-          </li>
-        ))}
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="bh" className="list-group-item list-group-item-dark">
-          Budget
-        </li>
-        <li key="b" className="list-group-item">
-          ${movie.budget}
-        </li>
-        <li key="revh" className="list-group-item list-group-item-dark">
-          Revenue
-        </li>
-        <li key="rev" className="list-group-item">
-          ${movie.revenue}
-        </li>
-      </ul>
-      <ul className="list-group list-group-horizontal">
-        <li key="sth" className="list-group-item list-group-item-dark">
-          Movie Status
-        </li>
-        <li key="st" className="list-group-item">
-          {movie.status}
-        </li>
-      </ul>
+      <h4 style={{color:"white"}}>Overview</h4>
+      <p  style={{color:"white"}}>{movie.overview}</p>
+      <Table celled>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell active>Runtime (min).</Table.Cell>
+            <Table.Cell>{movie.runtime}</Table.Cell>
+            <Table.Cell active>Release Date</Table.Cell>
+            <Table.Cell>{movie.release_date}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Genres</Table.Cell>
+              {movie.genres.map(g => (
+                <Table.Cell key={g.name}>{g.name}</Table.Cell>
+              ))}
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Spoken Languages</Table.Cell>
+            {movie.spoken_languages.map(lang => (
+                <Table.Cell key={lang.name}>{lang.name}</Table.Cell>
+              ))}
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Production Companies</Table.Cell>
+            {movie.production_companies.map(pcm => (
+                <Table.Cell key={pcm.name}>{pcm.name}</Table.Cell>
+              ))}
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Production Countries</Table.Cell>
+            {movie.production_countries.map(pc => (
+                <Table.Cell key={pc.name}>{pc.name}</Table.Cell>
+              ))}
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Budget</Table.Cell>
+            <Table.Cell>${movie.budget}</Table.Cell>
+            <Table.Cell active>Revenue</Table.Cell>
+            <Table.Cell>${movie.revenue}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Movie Status</Table.Cell>
+            <Table.Cell>{movie.status}</Table.Cell>
+          </Table.Row>
+          <Table.Row>
+            <Table.Cell active>Movie Rating</Table.Cell>
+            <Table.Cell>{movie.vote_average}</Table.Cell>
+            <Table.Cell active>Vote Count</Table.Cell>
+            <Table.Cell>{movie.vote_count}</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
     </>
   );
 };

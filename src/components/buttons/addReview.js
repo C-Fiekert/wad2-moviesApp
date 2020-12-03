@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import 'semantic-ui-css/semantic.min.css'
+import { Button } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
 
 const ReviewButton = ({ movie }) => {
   return (
     <Link
-      className="btn w-100 btn-primary "
-      style={{backgroundColor:"#d20000"}}
       to={{
         pathname: `/reviews/form`,
         state: {
@@ -13,7 +14,12 @@ const ReviewButton = ({ movie }) => {
         }
       }}
     >
-      Write a Review
+      <Button class="ui button" animated='vertical' color="red" fluid>
+      <Button.Content hidden><Icon name='angle double right' /></Button.Content>
+      <Button.Content visible>
+        Add a Review
+      </Button.Content>
+    </Button>
     </Link>
   );
 };
