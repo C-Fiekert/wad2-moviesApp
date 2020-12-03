@@ -21,8 +21,8 @@ const MoviePage = props => {
         <br></br><br></br>
         <div className="row">
           <div className="col-12 ">
-            {!props.history.location.pathname.endsWith("/reviews") ? (
-              <Link to={`/movies/${id}/reviews`}>
+            {!props.history.location.pathname.endsWith("/reviews/") ? (
+              <Link to={`/movies/${id}/reviews/`}>
                 <Button class="ui button" animated='vertical' color="yellow" fluid>
                 <Button.Content hidden><Icon name='angle double right' /></Button.Content>
                 <Button.Content visible>
@@ -31,7 +31,7 @@ const MoviePage = props => {
                 </Button>
               </Link>
             ) : (
-              <Link to={`/movies/${id}`}>
+              <Link to={`/movies/${id}/`}>
                 <Button class="ui button" animated='vertical' color="red" fluid>
                 <Button.Content hidden><Icon name='angle double right' /></Button.Content>
                 <Button.Content visible>
@@ -51,7 +51,7 @@ const MoviePage = props => {
         <Credits movie={movie} />
       </>
     ) : (
-      <p>Waiting for movie details</p>
+      <center><p style={{color:"white"}}>Waiting for movie details</p></center>
     )}
   </>
   );

@@ -6,6 +6,7 @@ import 'semantic-ui-css/semantic.min.css';
 import HomePage from "./pages/homePage";
 import MoviePage from './pages/movieDetailsPage';
 import ActorListPage from './pages/actorPage';
+import ActorPage from './pages/actorDetailsPage';
 import FavoriteMoviesPage from './pages/favoritesMoviesPage';
 import MovieReviewPage from "./pages/movieReviewPage";
 import SiteHeader from './components/siteHeader';
@@ -32,14 +33,15 @@ const App = () => {
                 <UpcomingMoviesContextProvider>
                   <GenresContextProvider>    {/* NEW */}
                   <Switch>
-                    <Route exact path="/reviews/form" component={AddMovieReviewPage} />
-                    <Route exact path="/reviews/:id" component={MovieReviewPage} />
-                    <Route exact path="/movies/watchLater" component={WatchLaterPage} />
+                    <Route exact path="/reviews/form/" component={AddMovieReviewPage} />
+                    <Route exact path="/reviews/:id/" component={MovieReviewPage} />
+                    <Route exact path="/movies/watchLater/" component={WatchLaterPage} />
                     <Route exact path="/actors/" component={ActorListPage} />
-                    <Route exact path="/movies/trending" component={TrendingPage} />
-                    <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
-                    <Route exact path="/movies/upcoming" component={UpcomingPage} />
-                    <Route exact path="/movies/:id" component={MoviePage} />
+                    <Route exact path="/actors/:id/" component={ActorPage} />
+                    <Route exact path="/movies/trending/" component={TrendingPage} />
+                    <Route exact path="/movies/favorites/" component={FavoriteMoviesPage} />
+                    <Route exact path="/movies/upcoming/" component={UpcomingPage} />
+                    <Route exact path="/movies/:id/" component={MoviePage} />
                     <Route exact path="/" component={HomePage} />
                     <Redirect from="*" to="/" />
                   </Switch>

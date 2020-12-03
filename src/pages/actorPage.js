@@ -8,7 +8,7 @@ const ActorListPage = () => {
 
   return (
     <PageTemplate
-      title="No. Actors"
+      name="No. Actors"
       persons={persons}  /* Changed */
     />
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "semantic-ui-react";
+import { Table, Flag } from "semantic-ui-react";
 import "./movieDetails.css";
 
 export default ({ movie }) => {
@@ -24,7 +24,9 @@ export default ({ movie }) => {
           <Table.Row>
             <Table.Cell active>Spoken Languages</Table.Cell>
             {movie.spoken_languages.map(lang => (
-                <Table.Cell key={lang.name}>{lang.name}</Table.Cell>
+                <Table.Cell key={lang.name}>
+                  {lang.name}
+                </Table.Cell>
               ))}
           </Table.Row>
           <Table.Row>
@@ -36,7 +38,9 @@ export default ({ movie }) => {
           <Table.Row>
             <Table.Cell active>Production Countries</Table.Cell>
             {movie.production_countries.map(pc => (
-                <Table.Cell key={pc.name}>{pc.name}</Table.Cell>
+                <Table.Cell key={pc.name}>
+                  <Flag name={pc.iso_3166_1.toLowerCase()} />{pc.name}
+                </Table.Cell>
               ))}
           </Table.Row>
           <Table.Row>

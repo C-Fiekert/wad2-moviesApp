@@ -20,6 +20,14 @@ export const getCredits = id => {
     .then(json => json.cast);
 };
 
+export const getMovieCredits = id => {
+  return fetch(
+    `https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US`
+  )
+    .then(res => res.json())
+    .then(json => json.cast);
+};
+
 export const getGenres = () => {
   return fetch(
     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
