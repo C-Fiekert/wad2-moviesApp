@@ -24,6 +24,9 @@ const FilterControls = props => {
           <span>List Filtering:</span>
           <Input icon='search' placeholder='Title Search' onChange={handleTextChange}/>
           <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
           <span>Genre:</span>
           <select id="genre" onChange={handleGenreChange}>
             {context.genres.map(genre => {
