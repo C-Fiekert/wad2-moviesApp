@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import {MoviesContext} from "../../contexts/moviesContext";
-
 import { Button } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 

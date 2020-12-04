@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import PageTemplate from '../components/templateTrendingListPage'
-import {TrendingContext} from '../contexts/trendingContext'
+import {MoviesContext} from '../contexts/moviesContext'
 
 const TrendingPage = () => {
-  const context = useContext(TrendingContext);
+  const context = useContext(MoviesContext);
   const movies = context.movies.filter((m) => { return !("favorite" in m); });
 
   return (

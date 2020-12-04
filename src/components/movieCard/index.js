@@ -7,7 +7,7 @@ import { Icon } from 'semantic-ui-react'
 import { Image } from 'semantic-ui-react'
 
 const MovieCard = ({movie, action}) => {
-
+  console.log("5");
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
       <Link to={`/movies/${movie.id}`}>

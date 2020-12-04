@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import {UpcomingMoviesContext} from "../../contexts/upcomingMoviesContext";
+import {MoviesContext} from "../../contexts/moviesContext";
 import { Button } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 
 const WatchListButton = ({ movie }) => {
-  const context = useContext(UpcomingMoviesContext);
+  const context = useContext(MoviesContext);
 
   const handleWatchList = e => {
     e.preventDefault();
