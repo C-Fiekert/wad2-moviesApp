@@ -29,15 +29,15 @@ const App = () => {
             <ActorsContextProvider>
               <GenresContextProvider>    {/* NEW */}
               <Switch>
-                <Route exact path="/reviews/form/" component={AddMovieReviewPage} />
-                <Route exact path="/reviews/:id/" component={MovieReviewPage} />
-                <Route exact path="/movies/upcoming/" component={UpcomingPage} />
-                <Route exact path="/movies/watchLater/" component={WatchLaterPage} />
-                <Route exact path="/actors/" component={ActorListPage} />
-                <Route exact path="/actors/:id/" component={ActorPage} />
-                <Route exact path="/movies/trending/" component={TrendingPage} />
-                <Route exact path="/movies/favorites/" component={FavoriteMoviesPage} />
-                <Route exact path="/movies/:id/" component={MoviePage} />
+                <Route exact path="/reviews/form" component={AddMovieReviewPage} />
+                <Route exact path="/reviews/:id" component={MovieReviewPage} />
+                <Route exact path="/movies/upcoming" component={UpcomingPage} />
+                <Route exact path="/movies/watchLater" component={WatchLaterPage} />
+                <Route exact path="/actors" component={ActorListPage} />
+                <Route exact path="/actors/:id" component={ActorPage} />
+                <Route exact path="/movies/trending" component={TrendingPage} />
+                <Route exact path="/movies/favorites" component={FavoriteMoviesPage} />
+                <Route path="/movies/:id" component={MoviePage} />
                 <Route exact path="/" component={HomePage} />
                 <Redirect from="*" to="/" />
               </Switch>
@@ -49,5 +49,6 @@ const App = () => {
     </BrowserRouter>
   );
 };
+console.log("7")
 
 ReactDOM.render(<App />, document.getElementById("root"));

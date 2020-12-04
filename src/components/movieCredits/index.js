@@ -3,10 +3,7 @@ import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import "./movieCredits.css";
 import { getMovieCredits } from "../../api/tmdb-api";
-import { Card } from 'semantic-ui-react'
-import { Icon } from 'semantic-ui-react'
-import { Image } from 'semantic-ui-react'
-import { Button } from 'semantic-ui-react'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 
 export default ({ person }) => {
   const [movieCredits, setMovieCredits] = useState([]);

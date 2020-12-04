@@ -1,11 +1,10 @@
 import React from "react";
-import 'semantic-ui-css/semantic.min.css'
 
 export default ({ review }) => {
   return (
     <>
-      <p>Review By: {review.author} </p>
-      <p>{review.content} </p>
+      <h4 style={{color:"white"}}>Review By: {review.author}</h4>
+      <p  style={{color:"white"}}>{review.content}</p>
     </>
   );
 };

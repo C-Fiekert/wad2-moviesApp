@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./filterControls.css";
 import { GenresContext } from '../../contexts/genresContext' 
+import { Input } from 'semantic-ui-react'
 
 const FilterControls = props => {
   const context = useContext(GenresContext);
@@ -21,11 +22,8 @@ const FilterControls = props => {
       <div className="col-md-12">
         <h4>
           <span>List Filtering:</span>
-          <input
-            type="text"
-            placeholder="Title Search"
-            onChange={handleTextChange}
-          />
+          <Input icon='search' placeholder='Title Search' onChange={handleTextChange}/>
+          <span></span>
           <span>Genre:</span>
           <select id="genre" onChange={handleGenreChange}>
             {context.genres.map(genre => {

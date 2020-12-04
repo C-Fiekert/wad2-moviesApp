@@ -39,6 +39,7 @@ export const getGenres = () => {
 };
 
 export const getMovieReviews = id => {
+  console.log("3")
   return fetch(
     `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${process.env.REACT_APP_TMDB_KEY}`
   )
