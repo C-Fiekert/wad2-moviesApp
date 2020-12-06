@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import PageTemplate from '../components/templateTrendingListPage'
+import PageTemplate from '../components/templateTopRatedPage'
 import {MoviesContext} from '../contexts/moviesContext'
 
-const TrendingPage = () => {
+const TopRatedPage = () => {
   const context = useContext(MoviesContext);
-  const movies = context.movies.filter((m) => { return !("favorite" in m); });
+  const movies = context.toprated.filter((m) => { return !("favorite" in m); });
 
   return (
     <PageTemplate
@@ -14,4 +14,4 @@ const TrendingPage = () => {
   );
 };
 
-export default TrendingPage;
+export default TopRatedPage;

@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./trendingCard.css";
+import "./topRatedCard.css";
 import "../../globals/fontawesome";
 import { Card } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 import { Image } from 'semantic-ui-react'
 
-const TrendingCard = ({movie}) => {
+const TopRatedCard = ({movie}) => {
 
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
@@ -39,4 +39,4 @@ const TrendingCard = ({movie}) => {
   );
 };
 
-export default TrendingCard;
+export default TopRatedCard;

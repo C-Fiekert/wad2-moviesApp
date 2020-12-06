@@ -17,9 +17,9 @@ export default ({ movie }) => {
           </Table.Row>
           <Table.Row>
             <Table.Cell active>Genres</Table.Cell>
-              {movie.genres.map(g => (
-                <Table.Cell key={g.name}>{g.name}</Table.Cell>
-              ))}
+            {movie.genres.map(g => (
+              <Table.Cell key={g.name}>{g.name}</Table.Cell>
+            ))}
           </Table.Row>
           <Table.Row>
             <Table.Cell active>Spoken Languages</Table.Cell>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Header from "../headerMovieList";
-import TrendingList from "../trendingList";
+import TopRatedList from "../topRatedList";
 import FilterControls from "../filterControls";
 
-const TrendingListPageTemplate = ({ movies, title}) => {
+const TopRatedListPageTemplate = ({ movies, title}) => {
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
   const genre = Number(genreFilter)
@@ -26,11 +26,11 @@ const TrendingListPageTemplate = ({ movies, title}) => {
     <>
       <Header title={title} numMovies={displayedMovies.length} />
       <FilterControls onUserInput={handleChange} numMovies={displayedMovies.length}/>
-      <TrendingList
+      <TopRatedList
        movies={displayedMovies}
       />
     </>
   );
 };
 
-export default TrendingListPageTemplate ;
+export default TopRatedListPageTemplate ;
