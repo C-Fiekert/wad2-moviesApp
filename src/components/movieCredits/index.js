@@ -15,7 +15,7 @@ export default ({ person }) => {
   }, []);
 
   return(
-      <div className="row movies bg-info" style={{backgroundColor:"#d20000"}}>
+      <div className="row movies" style={{backgroundColor:"#d20000"}}>
         {movieCredits.map(mc => {
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
