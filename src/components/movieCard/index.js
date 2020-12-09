@@ -2,9 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./movieCard.css";
 import "../../globals/fontawesome";
-import { Card } from 'semantic-ui-react'
-import { Icon } from 'semantic-ui-react'
-import { Image } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 const MovieCard = ({movie, action}) => {
   console.log("5");

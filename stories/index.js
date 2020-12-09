@@ -1,14 +1,32 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import MovieCard from "../src/components/movieCard";
+import 'semantic-ui-css/semantic.min.css';
+import { Card, Icon, Image, Button } from 'semantic-ui-react';
+import ActorCard from "../src/components/actorCard";
+import ActorDetails from "../src/components/actorDetails";
+import ActorFilter from "../src/components/actorFilterControls";
+import ActorList from "../src/components/actorList";
+import ReviewButton from "../src/components/buttons/addReview.js";
+import AddToFavoritesButton from "../src/components/buttons/addToFavorites.js";
+import WatchListButton from "../src/components/buttons/addToWatchList.js";
 import FilterControls from "../src/components/filterControls";
-import MoviesHeader from "../src/components/headerMovieList";
-import MovieList from "../src/components/movieList";
-import MovieDetails from "../src/components/movieDetails";
+import ActorHeader from "../src/components/headerActor";
+import ActorsHeader from "../src/components/headerActorList";
 import MovieHeader from "../src/components/headerMovie";
+import Header from "../src/components/headerMovieList";
+import MovieCard from "../src/components/movieCard";
+import MovieDetails from "../src/components/movieDetails";
+import MovieList from "../src/components/movieList";
+import ReviewForm from "../src/components/reviewForm";
+import Siteheader from "../src/components/siteHeader";
+import TopRatedCard from "../src/components/topRatedCard";
+import TopRatedList from "../src/components/topRatedList";
+
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
+import MoviesContextProvider from "../src/contexts/moviesContext";
+import ActorsContextProvider from "../src/contexts/actorsContext";
 import { action } from "@storybook/addon-actions";
 
 const sample = {
@@ -92,27 +110,6 @@ const sample = {
   vote_count: 9692
 };
 
-storiesOf("Home Page/MovieCard", module)
-  .addDecorator(story => (
-    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
-  ))
-  .add("default", () => (
-    <MovieCard
-      movie={sample}
-      action={movie => <button className="btn w-100 btn-primary">Test</button>}
-    />
-  ))
-  .add("exception", () => {
-    const sampleNoPoster = { ...sample, poster_path: undefined };
-    return (
-      <MovieCard
-        movie={sampleNoPoster}
-        action={movie => (
-          <button className="btn w-100 btn-primary">Test</button>
-        )}
-      />
-    );
-  });
 
 storiesOf("Home Page/FilterControls", module)
   .addDecorator(story => (
@@ -122,11 +119,13 @@ storiesOf("Home Page/FilterControls", module)
     <FilterControls onUserInput={action("button-click")} numMovies={10} />
   ));
 
-storiesOf("Home Page/Header", module).add("default", () => (
-  <MoviesHeader title="All Movies" numMovies={10} />
-));
 
-storiesOf("Home Page/MovieList", module)
+  storiesOf("Home Page/Header", module).add("default", () => (
+    <MoviesHeader title="All Movies" numMovies={10} />
+  ));
+
+
+  storiesOf("Home Page/MovieList", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
@@ -135,16 +134,47 @@ storiesOf("Home Page/MovieList", module)
     return (
       <MovieList
         movies={movies}
-        action={movie => (
-          <button className="btn w-100 btn-primary">Test</button>
-        )}
+        action={(movie) => {
+          return <AddToFavoritesButton movie={movie} />
+        }}
       />
     );
   });
 
+
+storiesOf("Home Page/MovieCard", module)
+  .addDecorator(story => (
+    <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
+  ))
+  .add("default", () => (
+    <MovieCard
+      movie={sample}
+      action={(movie) => {
+        return <AddToFavoritesButton movie={movie} />
+      }}
+    />
+  ))
+  .add("exception", () => {
+    const sampleNoPoster = { ...sample, poster_path: undefined };
+    return (
+      <MovieCard
+        movie={sampleNoPoster}
+        action={(movie) => {
+          return <AddToFavoritesButton movie={movie} />
+        }}
+      />
+    );
+  });
+
+
+
+
+
 storiesOf("Movie Details Page/MovieDetails", module).add("default", () => (
   <MovieDetails movie={sample} />
 ));
+
+
 
 storiesOf("Movie Details Page/MovieHeader", module)
   .addDecorator(story => (
