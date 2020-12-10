@@ -5,14 +5,14 @@ import "../../globals/fontawesome";
 import { Card, Icon, Image } from 'semantic-ui-react';
 
 const MovieCard = ({movie, action}) => {
-  console.log("5");
   return (
     <div className="col-sm-3" style={{backgroundColor:"#d20000"}}>
       <Link to={`/movies/${movie.id}`}>
       <Card>
         <Image
           className="card-img-tag center "
-          alt={movie.title}
+          //alt={movie.title}
+          onerror="this.onerror=null; this.src='/moviesApp/film-poster-placeholder.png';"
           src={
             movie.poster_path
               ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`

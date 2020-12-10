@@ -27,7 +27,8 @@ export default ({ movie }) => {
     <center>
       <Image
         className="card-img-tag center "
-        alt={"Photo Unavailable"}
+        //alt={"Photo Unavailable"}
+        onerror="this.onerror=null; this.src='/moviesApp/film-poster-placeholder.png';"
         src={
           c.profile_path
             ? `https://image.tmdb.org/t/p/w500/${c.profile_path}`
