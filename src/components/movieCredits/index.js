@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import "./movieCredits.css";
 import { getMovieCredits } from "../../api/tmdb-api";
-import { Card, Icon, Image, Button, Placeholder } from 'semantic-ui-react'
+import { Card, Icon, Image, Button} from 'semantic-ui-react'
 
 export default ({ person }) => {
   const [movieCredits, setMovieCredits] = useState([]);
@@ -12,6 +12,7 @@ export default ({ person }) => {
     getMovieCredits(person.id).then(movieCredits => {
       setMovieCredits(movieCredits);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(

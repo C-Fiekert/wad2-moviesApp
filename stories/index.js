@@ -10,7 +10,11 @@ import ActorList from "../src/components/actorList";
 import ReviewButton from "../src/components/buttons/addReview.js";
 import AddToFavoritesButton from "../src/components/buttons/addToFavorites.js";
 import WatchListButton from "../src/components/buttons/addToWatchList.js";
+import RemoveFavoriteMovieButton from "../src/components/buttons/removeFavoriteMovie.js";
+import RemoveWatchListButton from "../src/components/buttons/removeWatchLater.js";
 import Credits from "../src/components/credits";
+import FavoriteWatchCard from "../src/components/favoriteWatchCard";
+import FavoriteWatchList from "../src/components/favoriteWatchList";
 import FilterControls from "../src/components/filterControls";
 import ActorHeader from "../src/components/headerActor";
 import ActorsHeader from "../src/components/headerActorList";
@@ -27,8 +31,6 @@ import SiteHeader from "../src/components/siteHeader";
 import TopRatedCard from "../src/components/topRatedCard";
 import TopRatedList from "../src/components/topRatedList";
 import GenresContextProvider from "../src/contexts/genresContext";
-import MoviesContextProvider from "../src/contexts/moviesContext";
-import ActorsContextProvider from "../src/contexts/actorsContext";
 import { action } from "@storybook/addon-actions";
 
 const sample = {
@@ -203,7 +205,6 @@ storiesOf("Home Page/MovieCard", module)
   });
 
 
-
 storiesOf("Movie Details Page/MovieHeader", module)
 .addDecorator(story => (
   <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
@@ -225,7 +226,6 @@ storiesOf("Movie Details Page/MovieCredits", module).addDecorator(story => (
 .add("default", () => (
   <Credits movie={sample} />
 ));
-
 
 
 storiesOf("Actor List Page/ActorListHeader", module)
@@ -277,7 +277,6 @@ storiesOf("Actor List Page/FilterControls", module)
   });
 
 
-
 storiesOf("Actor Details Page/ActorPageHeader", module)
 .addDecorator(story => (
   <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
@@ -299,11 +298,9 @@ storiesOf("Actor Details Page/MoviesFeaturedIn", module)
 .add("default", () => <MovieCredits person={actor} />);
 
 
-
-
-  storiesOf("Top Rated Page/TopRatedHeader", module).add("default", () => (
-    <Header title="No. Movies" numMovies={10} />
-  ));
+storiesOf("Top Rated Page/TopRatedHeader", module).add("default", () => (
+  <Header title="No. Movies" numMovies={10} />
+));
 
 
   storiesOf("Top Rated Page/FilterControls", module)
@@ -346,7 +343,6 @@ storiesOf("Actor Details Page/MoviesFeaturedIn", module)
       />
     );
   });
-
 
 
   storiesOf("Upcoming Page/UpcomingHeader", module).add("default", () => (
@@ -405,8 +401,6 @@ storiesOf("Actor Details Page/MoviesFeaturedIn", module)
   });
 
 
-
-
   storiesOf("Favorites Page/FavoritesHeader", module).add("default", () => (
     <Header title="Favorite Movies" numMovies={10} />
   ));
@@ -428,10 +422,13 @@ storiesOf("Actor Details Page/MoviesFeaturedIn", module)
   .add("default", () => {
     const movies = [sample, sample, sample, sample, sample];
     return (
-      <MovieList
+      <FavoriteWatchList
         movies={movies}
-        action={(movie) => {
+        review={(movie) => {
           return <ReviewButton movie={movie} />
+        }}
+        remove={(movie) => {
+          return <RemoveFavoriteMovieButton movie={movie} />
         }}
       />
     );
@@ -443,27 +440,30 @@ storiesOf("Actor Details Page/MoviesFeaturedIn", module)
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => (
-    <MovieCard
+    <FavoriteWatchCard
       movie={sample}
-      action={(movie) => {
+      review={(movie) => {
         return <ReviewButton movie={movie} />
+      }}
+      remove={(movie) => {
+        return <RemoveFavoriteMovieButton movie={movie} />
       }}
     />
   ))
   .add("exception", () => {
     const sampleNoPoster = { ...sample, poster_path: undefined };
     return (
-      <MovieCard
+      <FavoriteWatchCard
         movie={sampleNoPoster}
-        action={(movie) => {
+        review={(movie) => {
           return <ReviewButton movie={movie} />
+        }}
+        remove={(movie) => {
+          return <RemoveFavoriteMovieButton movie={movie} />
         }}
       />
     );
   });
-
-
-
 
 
   storiesOf("Watch Later Page/WatchLaterHeader", module).add("default", () => (
@@ -480,47 +480,55 @@ storiesOf("Actor Details Page/MoviesFeaturedIn", module)
   ));
 
 
-  storiesOf("Watch Later Page/WatchListList", module)
+  storiesOf("Watch Later Page/WatchLaterList", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => {
     const movies = [sample, sample, sample, sample, sample];
     return (
-      <MovieList
+      <FavoriteWatchList
         movies={movies}
-        action={(movie) => {
+        review={(movie) => {
           return <ReviewButton movie={movie} />
+        }}
+        remove={(movie) => {
+          return <RemoveWatchListButton movie={movie} />
         }}
       />
     );
   });
 
 
-  storiesOf("Watch Later Page/WatchListCard", module)
+  storiesOf("Watch Later Page/WatchLaterCard", module)
   .addDecorator(story => (
     <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
   ))
   .add("default", () => (
-    <MovieCard
-      movie={sample}
-      action={(movie) => {
-        return <ReviewButton movie={movie} />
-      }}
-    />
+    <FavoriteWatchCard
+        movie={sample}
+        review={(movie) => {
+          return <ReviewButton movie={movie} />
+        }}
+        remove={(movie) => {
+          return <RemoveWatchListButton movie={movie} />
+        }}
+      />
   ))
   .add("exception", () => {
     const sampleNoPoster = { ...sample, poster_path: undefined };
     return (
-      <MovieCard
+      <FavoriteWatchCard
         movie={sampleNoPoster}
-        action={(movie) => {
+        review={(movie) => {
           return <ReviewButton movie={movie} />
+        }}
+        remove={(movie) => {
+          return <RemoveWatchListButton movie={movie} />
         }}
       />
     );
   });
-
 
 
 storiesOf("Review Form Page/ReviewFormHeader", module)
@@ -535,7 +543,6 @@ storiesOf("Review Form Page/ReviewForm", module)
   <MemoryRouter initialEntries={["/"]}>{story()}</MemoryRouter>
 ))
 .add("default", () => <ReviewForm movie={sample} />);
-
 
 
 storiesOf("Review Page/ReviewPageHeader", module)

@@ -15,6 +15,7 @@ export default ({ movie }) => {
     getCredits(movie.id).then(credits => {
       setCredits(credits);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return(
