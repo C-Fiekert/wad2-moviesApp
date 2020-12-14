@@ -1,8 +1,8 @@
-# Assignment 1 - ReactJS app.
+# Assignment 1 - ReactJS app
 
 Name: Callum Fiekert
 
-## Features.
+## Features
 
  + Feature 1 - Top Rated page. This displays the current top rated movies on TMDB 
  + Feature 2 - Actors page. This displays the current most popular actors on TMDB
@@ -13,14 +13,14 @@ Name: Callum Fiekert
  + Feature 7 - Movie Cast. Each movie now displays its full cast as well as the characters they played
  + Feature 8 - Remove function. User can remove a movie from their favorites or watch later
 
-## Setup requirements.
+## Setup requirements
 
 1. Download this repository and unzip the project
 2. In the project folder, create a file called ".env" and paste your API key inside
 3. In your code editors console, run "npm install" to install project dependancies
 4. Run "npm start" to start the movie app
 
-## API Data Model.
+## API Data Model
 
 + https://api.themoviedb.org/3/movie/${id}/credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US - Get the cast for a movie 
 + https://api.themoviedb.org/3/person/${id}/movie_credits?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US - Get movies starred in for an actor
@@ -29,9 +29,9 @@ Name: Callum Fiekert
 + https://api.themoviedb.org/3/person/popular?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1 - Get the current most popular actors
 + https://api.themoviedb.org/3/person/${id}?api_key=${process.env.REACT_APP_TMDB_KEY} - Get an actors details
 
-## App Design.
+## App Design
 
-### Component catalogue (If required).
+### Component catalogue
 
 #### Movie Credits
 
@@ -53,7 +53,7 @@ Name: Callum Fiekert
 
 ![][removewatch]
 
-### UI Design.
+### UI Design
 
 ![][homepage]
 >Shows homepage with new styling and color scheme. Add to Favorites buttons are animated
@@ -82,13 +82,13 @@ Name: Callum Fiekert
 ![][removewatchlater]
 >Movies in the watch later page can also be removed and returned to their original page
 
-## Routing.
+## Routing
 
 + /movies/top-rated (public) - This page displays top rated movies
 + /actors (public) - This page displays the current most popular actors
 + /actors/:id (public) - This page displays a specific actors information
 
-### Data hyperlinking.
+### Data hyperlinking
 
 ![][navbar]
 > Each tab in the navigation bar brings the user to the respective pages
@@ -105,7 +105,7 @@ Name: Callum Fiekert
 ![][removefromlist]
 >The Additional button on a card in the favorites or watch later list can remove the movie from the list
 
-## Independent learning.
+## Independent learning
 
 Semantic UI React was used in this project to style each web page and component to revamp the aesthetics of this web app. I learned about this information on the official Semantic website at (https://react.semantic-ui.com/)
 I also learned about Firebase authentication which is used for managing login credentials for websites. I didn't manage to implement this feature but did however install the firebase dependancies and added my relevant authentication keys located in my .env file
